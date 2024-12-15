@@ -3,10 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Accueil</title>
   </head>
   <body>
-    <p>Page d'accueil</p>
-    <h3 th:text="${message}"></h3>
+    <h2>Liste des clients</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Prenom</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Téléphone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="customer : ${customers}">
+          <td th:text="${customer.firstName}"></td>
+          <td th:text="${customer.lastName}"></td>
+          <td th:text="${customer.email}"></td>
+          <td th:text="${customer.phone}"></td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

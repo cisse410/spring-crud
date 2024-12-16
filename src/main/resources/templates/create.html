@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Ajout d'un client</title>
+    <title
+      th:text="${customer.id == null ? 'Ajout d un client':'Modifier '+customer.firstName+' '+customer.lastName}"
+    ></title>
   </head>
   <body class="h-full">
     <div class="min-h-full">
@@ -21,7 +23,6 @@
               </div>
               <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-4">
-                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                   <a
                     th:href="@{/}"
                     class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
@@ -57,17 +58,19 @@
       <main>
         <header class="bg-white shadow">
           <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-bold tracking-tight text-gray-900">
-              Ajout d'un client
-            </h1>
+            <h1
+              th:text="${customer.id == null ? 'Ajout d un client':'Modifier '+customer.firstName+' '+customer.lastName}"
+              class="text-3xl font-bold tracking-tight text-gray-900"
+            ></h1>
           </div>
         </header>
         <div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
           <div class="bg-blue-100 rounded-lg min-h-screen flex items-center">
             <div class="w-full">
-              <h2 class="text-center text-blue-400 font-bold text-2xl mb-10">
-                Ajout d'un client
-              </h2>
+              <h2
+                th:text="${customer.id == null ? 'Ajout d un client':'Modifier '+customer.firstName+' '+customer.lastName}"
+                class="text-center text-blue-400 font-bold text-2xl mb-10"
+              ></h2>
               <div
                 class="bg-white shadow-lg p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2"
               >
@@ -76,6 +79,7 @@
                   th:method="POST"
                   th:object="${customer}"
                 >
+                  <input type="hidden" th:field="${customer.id}" />
                   <div class="mb-5">
                     <label
                       for="firstName"

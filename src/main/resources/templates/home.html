@@ -91,6 +91,7 @@
                 <th class="px-6 py-3 text-center">Nom</th>
                 <th class="px-6 py-3 text-center">Email</th>
                 <th class="px-6 py-3 text-center">Téléphone</th>
+                <th class="px-6 py-3 text-center">&nbsp;Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -112,6 +113,23 @@
                   class="px-6 py-5 text-center"
                   th:text="${customer.phone}"
                 ></td>
+                <td class="px-6 py-5 text-center">
+                  <a
+                    th:href="@{customer/{id}(id=${customer.id})}"
+                    class="bg-green-600 font-medium hover:bg-green-700 px-3 py-2 rounded-md text-sm text-white mr-1"
+                    >Afficher</a
+                  >
+                  <a
+                    th:href="@{customer/{id}/edit(id=${customer.id})}"
+                    class="bg-blue-600 font-medium hover:bg-blue-700 px-3 py-2 rounded-md text-sm text-white mr-1"
+                    >Modifier</a
+                  >
+                  <a
+                    th:href="@{customer/{id}/delete(id=${customer.id})}"
+                    class="bg-red-600 font-medium hover:bg-red-700 px-3 py-2 rounded-md text-sm text-white mr-1"
+                    >Supprimer</a
+                  >
+                </td>
               </tr>
             </tbody>
           </table>

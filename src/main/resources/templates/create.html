@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Accueil</title>
+    <title>Ajout d'un client</title>
   </head>
   <body class="h-full">
     <div class="min-h-full">
@@ -88,6 +88,11 @@
                       placeholder="Saisir votre prénom"
                       class="border border-gray-300 shadow p-3 w-full rounded"
                     />
+                    <p
+                      th:if="${#fields.hasErrors('firstName')}"
+                      th:errors="*{firstName}"
+                      class="text-sm font-bold text-red-400 mt-2"
+                    ></p>
                   </div>
                   <div class="mb-5">
                     <label
@@ -99,8 +104,13 @@
                       type="text"
                       th:field="${customer.lastName}"
                       placeholder="Saisir votre nom"
-                      class="border border-gray-300 shadow p-3 w-full rounded mb-"
+                      class="border border-gray-300 shadow p-3 w-full rounded"
                     />
+                    <p
+                      th:if="${#fields.hasErrors('lastName')}"
+                      th:errors="*{lastName}"
+                      class="text-sm font-bold text-red-400 mt-2"
+                    ></p>
                   </div>
                   <div class="mb-5">
                     <label
@@ -112,8 +122,13 @@
                       type="email"
                       th:field="${customer.email}"
                       placeholder="Saisir votre email"
-                      class="border border-gray-300 shadow p-3 w-full rounded mb-"
+                      class="border border-gray-300 shadow p-3 w-full rounded"
                     />
+                    <p
+                      th:if="${#fields.hasErrors('email')}"
+                      th:errors="*{email}"
+                      class="text-sm font-bold text-red-400 mt-2"
+                    ></p>
                   </div>
                   <div class="mb-5">
                     <label
@@ -125,8 +140,13 @@
                       type="number"
                       th:field="${customer.phone}"
                       placeholder="Saisir votre téléphone"
-                      class="border border-gray-300 shadow p-3 w-full rounded mb-"
+                      class="border border-gray-300 shadow p-3 w-full rounded"
                     />
+                    <p
+                      th:if="${#fields.hasErrors('phone')}"
+                      th:errors="*{phone}"
+                      class="text-sm font-bold text-red-400 mt-2"
+                    ></p>
                   </div>
 
                   <button
